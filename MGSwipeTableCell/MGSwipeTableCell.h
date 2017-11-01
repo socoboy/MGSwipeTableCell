@@ -114,6 +114,8 @@ typedef NS_ENUM(NSInteger, MGSwipeEasingFunction) {
     to make the cell 'resist' swiping after buttons are revealed. Default is 1.0 */
 @property (nonatomic, assign) CGFloat swipeBounceRate;
 
+@property (nonatomic, copy, readwrite) void(^ _Nullable customConfigContainerView)(UIView * _Nullable buttonsContainerView);
+
 @end
 
 

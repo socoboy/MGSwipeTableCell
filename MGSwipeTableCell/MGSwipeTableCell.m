@@ -740,6 +740,11 @@ static inline CGFloat mgEaseInOutBounce(CGFloat t, CGFloat b, CGFloat c) {
         _leftView.frame = CGRectMake(-_leftView.bounds.size.width, _leftSwipeSettings.topMargin, _leftView.bounds.size.width, _swipeOverlay.bounds.size.height - _leftSwipeSettings.topMargin - _leftSwipeSettings.bottomMargin);
         _leftView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
         [_swipeOverlay addSubview:_leftView];
+        
+        if (_leftSwipeSettings.customConfigContainerView) {
+            _leftSwipeSettings.customConfigContainerView(_leftView);
+        }
+
     }
     if (!_rightView && _rightButtons.count > 0) {
         _rightView = [[MGSwipeButtonsView alloc] initWithButtons:_rightButtons direction:MGSwipeDirectionRightToLeft differentWidth:_allowsButtonsWithDifferentWidth buttonsDistance:_rightSwipeSettings.buttonsDistance];
@@ -747,6 +752,11 @@ static inline CGFloat mgEaseInOutBounce(CGFloat t, CGFloat b, CGFloat c) {
         _rightView.frame = CGRectMake(_swipeOverlay.bounds.size.width, _rightSwipeSettings.topMargin, _rightView.bounds.size.width, _swipeOverlay.bounds.size.height - _rightSwipeSettings.topMargin - _rightSwipeSettings.bottomMargin);
         _rightView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
         [_swipeOverlay addSubview:_rightView];
+        
+        if (_rightSwipeSettings.customConfigContainerView) {
+            _rightSwipeSettings.customConfigContainerView(_rightView);
+        }
+
     }
 }
 
